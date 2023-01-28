@@ -2,7 +2,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import json from "@rollup/plugin-json";
-// import css from "rollup-plugin-import-css";
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 
@@ -13,7 +12,6 @@ const production = !process.env.ROLLUP_WATCH;
 const plugins = [
   resolve(),
   json(),
-  // css(),
   babel({
     exclude: 'node_modules/**',
     babelHelpers: 'runtime',

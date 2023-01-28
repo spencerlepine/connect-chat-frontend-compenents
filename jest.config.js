@@ -1,6 +1,6 @@
 module.exports = {
     "moduleNameMapper": {
-        "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+        "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
     },
     "collectCoverage": true,
     "collectCoverageFrom": [
