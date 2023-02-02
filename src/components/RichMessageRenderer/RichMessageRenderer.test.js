@@ -36,10 +36,10 @@ describe("<RichMessageRenderer />", () => {
       const hyperlinkMessage = document.querySelector('a');
       expect(hyperlinkMessage).toBeInTheDocument();
       expect(hyperlinkMessage).toHaveTextContent('hyperlink');
-	 });
+  });
 	  
-	 test('Should be able to render plain text link', () => {
-     renderElement('https://amazon.com');
+  test('Should be able to render plain text link', () => {
+     renderComponent('https://amazon.com');
      const messageContainer = document.querySelector('p');
      expect(messageContainer).toBeInTheDocument();
      expect(messageContainer.style.margin).toBe('0px');
