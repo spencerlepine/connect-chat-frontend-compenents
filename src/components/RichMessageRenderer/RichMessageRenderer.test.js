@@ -33,10 +33,20 @@ describe("<RichMessageRenderer />", () => {
       const messageContainer = document.querySelector('p');
       expect(messageContainer).toBeInTheDocument();
       expect(messageContainer.style.margin).toBe('0px');
-      const italicMessage = document.querySelector('a');
-      expect(italicMessage).toBeInTheDocument();
-      expect(italicMessage).toHaveTextContent('hyperlink');
-  });
+      const hyperlinkMessage = document.querySelector('a');
+      expect(hyperlinkMessage).toBeInTheDocument();
+      expect(hyperlinkMessage).toHaveTextContent('hyperlink');
+	 });
+	  
+	 test('Should be able to render plain text link', () => {
+     renderElement('https://amazon.com');
+     const messageContainer = document.querySelector('p');
+     expect(messageContainer).toBeInTheDocument();
+     expect(messageContainer.style.margin).toBe('0px');
+     const textLinkMessage = document.querySelector('a');
+     expect(textLinkMessage).toBeInTheDocument();
+     expect(textLinkMessage).toHaveTextContent('https://amazon.com');
+   });
 
   test("Should be able to render numbered list", () => {
       renderComponent("1. item1 \n 1. item2");
