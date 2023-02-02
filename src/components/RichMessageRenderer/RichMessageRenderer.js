@@ -3,6 +3,7 @@
 
 import React from "react";
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
 
 const updateURLValue = (urlValue) => {
   let updatedUrlValue = urlValue;
@@ -15,6 +16,7 @@ const updateURLValue = (urlValue) => {
 const RichMessageRenderer = (props) => (
   <ReactMarkdown
     children={props.content}
+    remarkPlugins={[remarkGfm]}
     disallowedElements={["img"]}
     components={{
       p: ({ node, ...props }) => <p style={{ margin: '0' }} {...props} />,
