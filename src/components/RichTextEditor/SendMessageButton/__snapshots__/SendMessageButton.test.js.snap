@@ -7,7 +7,7 @@ Object {
     <div>
       <div
         aria-label="Send Message"
-        class="sc-bcXHqe feZwez"
+        class="sc-bcXHqe cEMkfL"
         data-testid="chat-send-message-button"
         tabindex="0"
       >
@@ -31,7 +31,7 @@ Object {
   "container": <div>
     <div
       aria-label="Send Message"
-      class="sc-bcXHqe feZwez"
+      class="sc-bcXHqe cEMkfL"
       data-testid="chat-send-message-button"
       tabindex="0"
     >

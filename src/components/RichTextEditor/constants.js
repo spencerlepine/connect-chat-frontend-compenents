@@ -1,3 +1,6 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+
 export const RICH_FORMATS = {
   BOLD: 'BOLD',
   ITALICS: 'ITALIC',
@@ -9,10 +12,7 @@ export const RICH_FORMATS = {
 
 export const inlineFormatDisplayOrder = [RICH_FORMATS.BOLD, RICH_FORMATS.ITALICS];
 
-export const blockTypeDisplayOrder = [
-  RICH_FORMATS.NUMBERED_LIST,
-  RICH_FORMATS.BULLETED_LIST,
-];
+export const blockTypeDisplayOrder = [RICH_FORMATS.NUMBERED_LIST, RICH_FORMATS.BULLETED_LIST];
 
 export const linkFormatDisplayOrder = [RICH_FORMATS.HYPERLINK];
 
@@ -23,10 +23,9 @@ export const KEY_CODE = {
   RIGHT: 39,
   SPACE: 32,
   ENTER: 13,
-  ESCAPE : 27,
-  TAB : 9,
+  ESCAPE: 27,
+  TAB: 9
 };
-
 
 export const NUM_OF_BUTTONS = 7;
 
@@ -38,6 +37,6 @@ export const RICH_MESSAGE_EVENT = {
   'unordered-list-item': 'USE_BULLETED_LIST',
   SEND_MESSAGE_BY_ENTER_KEY: 'SEND_MESSAGE_BY_ENTER_KEY',
   SEND_MESSAGE_BY_SEND_BUTTON: 'SEND_MESSAGE_BY_SEND_BUTTON'
-}
+};
 
 export const RICH_MESSAGE_ERROR = 'RICH_MESSAGE_ERROR';

@@ -1,3 +1,6 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { triggerCustomEvent } from './testHelper.js';
@@ -5,7 +8,7 @@ import * as styledComponents from './styled';
 import RichTextEditor from './RichTextEditor';
 import '@testing-library/jest-dom';
 
-describe("<RichTextEditor />", () => {
+describe('<RichTextEditor />', () => {
   let mockProps;
   let mockEditor;
 
@@ -21,9 +24,9 @@ describe("<RichTextEditor />", () => {
       sendAttachment: jest.fn(),
       placeholder: 'placeholder',
       onTyping: jest.fn(),
-      onContentChange: jest.fn(),
+      onContentChange: jest.fn()
     };
-  })
+  });
 
   it('should render error boundary page when UI error is catched', () => {
     const originalFn = styledComponents.RichToolbarContainer;
@@ -37,7 +40,7 @@ describe("<RichTextEditor />", () => {
     styledComponents.RichToolbarContainer = originalFn;
     const errorBoundary = screen.findByText('Something went wrong');
     expect(errorBoundary).not.toBeNull();
-  })
+  });
 
   it('should render rich test editor component successfully', () => {
     renderComponent(mockProps);
@@ -47,28 +50,28 @@ describe("<RichTextEditor />", () => {
 
   it('should able to send message by pressing enter key', () => {
     renderComponent(mockProps);
-    const editor = screen.getByTestId('rich-text-editor')
+    const editor = screen.getByTestId('rich-text-editor');
     const boldButton = document.querySelector('#richToolbarButton_0');
     fireEvent.click(boldButton);
 
     triggerCustomEvent({
       element: editor,
-      eventName: 'focus',
-    })
+      eventName: 'focus'
+    });
     triggerCustomEvent({
       element: editor,
       eventName: 'onInput',
-      detail: {detail: {data: 'aaa'}}
-    })
+      detail: { detail: { data: 'aaa' } }
+    });
     const sendButton = screen.getByTestId('chat-send-message-button');
     fireEvent.click(sendButton);
     expect(mockProps.sendMessage).toHaveBeenCalledTimes(1);
   });
 
-  it("Should open emoji picker when clicking emoji button", () => {
+  it('Should open emoji picker when clicking emoji button', () => {
     renderComponent(mockProps);
 
-    const richToolbarEmojiButton = mockEditor.getByTestId("chat-rich-toolbar-button_5");
+    const richToolbarEmojiButton = mockEditor.getByTestId('chat-rich-toolbar-button_5');
     const emojiPicker = mockEditor.getByTestId('emoji-picker');
 
     fireEvent.mouseDown(richToolbarEmojiButton);
@@ -76,10 +79,10 @@ describe("<RichTextEditor />", () => {
     expect(emojiPicker).toBeVisible();
   });
 
-  it("Should close emoji picker when clicking emoji button", () => {
+  it('Should close emoji picker when clicking emoji button', () => {
     renderComponent(mockProps);
 
-    const richToolbarEmojiButton = mockEditor.getByTestId("chat-rich-toolbar-button_5");
+    const richToolbarEmojiButton = mockEditor.getByTestId('chat-rich-toolbar-button_5');
     const emojiPicker = mockEditor.getByTestId('emoji-picker');
 
     fireEvent.mouseDown(richToolbarEmojiButton);
@@ -91,11 +94,11 @@ describe("<RichTextEditor />", () => {
     expect(emojiPicker).not.toBeVisible();
   });
 
-  it("Should add emoji to message when clicked", () => {
+  it('Should add emoji to message when clicked', () => {
     renderComponent(mockProps);
 
     const smilingEmojiButton = mockEditor.getByTitle('grinning');
-    let messagingField = mockEditor.queryByText("😀😀😀");
+    let messagingField = mockEditor.queryByText('😀😀😀');
 
     expect(messagingField).toBeNull();
 
@@ -103,7 +106,7 @@ describe("<RichTextEditor />", () => {
     fireEvent.click(smilingEmojiButton);
     fireEvent.click(smilingEmojiButton);
 
-    messagingField = mockEditor.queryByText("😀😀😀");
+    messagingField = mockEditor.queryByText('😀😀😀');
 
     expect(messagingField).toBeTruthy();
   });
