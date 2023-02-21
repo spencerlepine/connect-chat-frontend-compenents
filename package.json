@@ -51,7 +51,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-error-boundary": "^3.1.4",
-    "react-markdown": "^6.0.3",
+    "react-markdown": "^8.0.5",
     "rehype-attr": "^2.1.4",
     "remark-gfm": "^1.0.0",
     "styled-components": "^5.3.3"
