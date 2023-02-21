@@ -5,8 +5,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: release
-    url: https://www.npmjs.com/package/@spencerlepine/connect-chat-frontend-components
+    # Hard-coded GitHub environment - https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
+    environment:
+      name: release
+      url: https://www.npmjs.com/package/@spencerlepine/connect-chat-frontend-components
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
