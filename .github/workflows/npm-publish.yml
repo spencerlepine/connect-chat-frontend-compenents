@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: release
     url: https://www.npmjs.com/package/@spencerlepine/connect-chat-frontend-components
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
@@ -16,10 +18,15 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Create .npmrc
+        run: |
+          touch .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "always-auth=true" >> .npmrc
+
       - run: npm install
 
       - run: npm run release
 
       - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

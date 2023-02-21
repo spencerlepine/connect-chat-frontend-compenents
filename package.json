@@ -1,6 +1,6 @@
 {
   "name": "@spencerlepine/connect-chat-frontend-components",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "This package houses the shared frontend components, used across the Amazon Connect messaging products.",
   "license": "MIT-0",
   "main": "dist/index.js",
