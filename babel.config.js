@@ -1,14 +1,12 @@
-module.exports = {
-  presets: ["react-app"],
-  env: {
-    production: {
-      presets: [["@babel/preset-react", { useBuiltIns: true }]],
-    },
-    development: {
-      presets: [["@babel/preset-react", { useBuiltIns: true }]],
-    },
-    test: {
-      presets: [["@babel/preset-react", { useBuiltIns: true }]],
-    },
-  },
+module.exports = (api) => {
+  const isTest = api.env('test');
+  if (isTest) {
+    return {
+      presets: ['@babel/preset-env', ['@babel/preset-react', { useBuiltIns: true }]]
+    };
+  }
+
+  return {
+    presets: ['react-app']
+  };
 };

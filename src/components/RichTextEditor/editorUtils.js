@@ -1,9 +1,8 @@
-import {
-  EditorState,
-  Modifier,
-  RichUtils,
-} from "draft-js";
-import { NUM_OF_BUTTONS } from "./constants";
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: MIT-0
+
+import { EditorState, Modifier, RichUtils } from 'draft-js';
+import { NUM_OF_BUTTONS } from './constants';
 
 /**
  * Clear all content from the editor.
@@ -11,17 +10,17 @@ import { NUM_OF_BUTTONS } from "./constants";
 export function clearEditorContent(editorState) {
   const blocks = editorState.getCurrentContent().getBlockMap().toList();
   const updatedSelection = editorState.getSelection().merge({
-    anchorKey: blocks.first().get("key"),
+    anchorKey: blocks.first().get('key'),
     anchorOffset: 0,
-    focusKey: blocks.last().get("key"),
-    focusOffset: blocks.last().getLength(),
+    focusKey: blocks.last().get('key'),
+    focusOffset: blocks.last().getLength()
   });
   const newContentState = Modifier.removeRange(
     editorState.getCurrentContent(),
     updatedSelection,
-    "forward"
+    'forward'
   );
-  return EditorState.push(editorState, newContentState, "remove-range");
+  return EditorState.push(editorState, newContentState, 'remove-range');
 }
 
 /**
@@ -44,7 +43,7 @@ export function focusLastOrNextElement(currentIndex, delta) {
   }
   const currentElement = document.getElementById(`richToolbarButton_${currentIndex}`);
   currentElement.tabIndex = -1;
-  const targetElement = document.getElementById(`richToolbarButton_${currentIndex+delta}`);
+  const targetElement = document.getElementById(`richToolbarButton_${currentIndex + delta}`);
   targetElement.tabIndex = 0;
   targetElement.focus();
 }
